@@ -5,17 +5,16 @@ import java.util.regex.Pattern;
 
 /**
  * <h1>Simple Caesar Cipher</h1>
- * produce single word encryption for a Caesar Cipher
+ * produce single word encryption using a Caesar Cipher
  *
  * @author  Zachariah Dean
  * @version 1.0
- * @since   2020-09-28
+ * @since   2021-09-28
  */
 public class EncryptionMachine {
 
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     private static final Integer SHIFT = 3;
-    private static final String ENTER_WORD_TEXT = "Enter word (all lower case, no special characters): ";
 
     /**
      * entry point
@@ -95,6 +94,8 @@ public class EncryptionMachine {
      * @return plaintext word
      */
     private static String getWord(Scanner scanner) {
+        final String ENTER_WORD_TEXT = "Enter word (all lower case, no special characters): ";
+
         System.out.print(ENTER_WORD_TEXT);
         var word = scanner.next();
 
