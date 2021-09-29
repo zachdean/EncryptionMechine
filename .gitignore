@@ -1,0 +1,6 @@
+# ignore jetbrains
+.idea
+
+# ignore out
+out
+
