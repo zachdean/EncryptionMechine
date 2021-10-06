@@ -1,7 +1,6 @@
 package main.com.zachdean;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 /**
  * <h1>Simple Caesar Cipher</h1>
@@ -22,11 +21,12 @@ public class EncryptionMachine {
      * @param args - no input args
      */
     public static void main(String[] args) {
+
         var in = new Scanner(System.in);
 
         printIntroduction();
 
-        var key = getKey(in);
+        var key = getKey(in); // retain for future use
         var count = getWordCount(in);
 
         System.out.println();
@@ -35,18 +35,6 @@ public class EncryptionMachine {
 
         in.close();
         System.out.println("Fully Encrypted!");
-    }
-
-    /**
-     * processes the whole message
-     * @param wordCount the number of words in the message
-     * @param scanner stdin
-     */
-    public static void processWords(int wordCount, Scanner scanner){
-        for (int i = 0; i < wordCount; i++) {
-            var word = getWord(scanner);
-            printCipherText(word);
-        }
     }
 
     /**
@@ -99,6 +87,18 @@ public class EncryptionMachine {
     private static int getWordCount(Scanner scanner) {
         System.out.print("Enter number of words to encrypt: ");
         return Integer.parseInt(scanner.next());
+    }
+
+    /**
+     * processes the whole message
+     * @param wordCount the number of words in the message
+     * @param scanner stdin
+     */
+    public static void processWords(int wordCount, Scanner scanner){
+        for (int i = 0; i < wordCount; i++) {
+            var word = getWord(scanner);
+            printCipherText(word);
+        }
     }
 
     /**
