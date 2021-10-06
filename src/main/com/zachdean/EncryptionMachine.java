@@ -27,23 +27,26 @@ public class EncryptionMachine {
         printIntroduction();
 
         var key = getKey(in);
-        var word = getWord(in);
+        var count = getWordCount(in);
 
-        printCipherText(word);
+        System.out.println();
+
+        processWords(count, in);
 
         in.close();
+        System.out.println("Fully Encrypted!");
     }
 
     /**
-     * validates that input is a valid entry
-     *
-     * @param word
-     * @return is the word valid
+     * processes the whole message
+     * @param wordCount the number of words in the message
+     * @param scanner stdin
      */
-    public static boolean isWordValid(String word) {
-        var pattern = Pattern.compile("[a-z]+");
-        var m = pattern.matcher(word);
-        return m.matches();
+    public static void processWords(int wordCount, Scanner scanner){
+        for (int i = 0; i < wordCount; i++) {
+            var word = getWord(scanner);
+            printCipherText(word);
+        }
     }
 
     /**
@@ -93,6 +96,11 @@ public class EncryptionMachine {
         return scanner.next();
     }
 
+    private static int getWordCount(Scanner scanner) {
+        System.out.print("Enter number of words to encrypt: ");
+        return Integer.parseInt(scanner.next());
+    }
+
     /**
      * gets the word to encrypt from an input stream and validates entry
      *
@@ -100,17 +108,8 @@ public class EncryptionMachine {
      * @return plaintext word
      */
     private static String getWord(Scanner scanner) {
-        final String ENTER_WORD_TEXT = "Enter word (all lower case, no special characters): ";
-
-        System.out.print(ENTER_WORD_TEXT);
-        var word = scanner.next();
-
-        while (!isWordValid(word)) {
-            System.out.println("Invalid Entry!");
-            System.out.print(ENTER_WORD_TEXT);
-            word = scanner.next();
-        }
-        return word;
+        System.out.print("Enter word (all lower case, no special characters): ");
+        return scanner.next();
     }
 
     /**
@@ -119,7 +118,7 @@ public class EncryptionMachine {
      * @param word plaintext word
      */
     private static void printCipherText(String word) {
-        System.out.println("Ciphertext:");
-        System.out.print(EncryptionMachine.encryptWord(word));
+        System.out.println("Ciphertext: " + EncryptionMachine.encryptWord(word));
+        System.out.println();
     }
 }
