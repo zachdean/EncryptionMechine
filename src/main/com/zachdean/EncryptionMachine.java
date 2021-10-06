@@ -7,9 +7,9 @@ import java.util.regex.Pattern;
  * <h1>Simple Caesar Cipher</h1>
  * produce single word encryption using a Caesar Cipher
  *
- * @author  Zachariah Dean
+ * @author Zachariah Dean
  * @version 1.0
- * @since   2021-09-28
+ * @since 2021-09-28
  */
 public class EncryptionMachine {
 
@@ -18,6 +18,7 @@ public class EncryptionMachine {
 
     /**
      * entry point
+     *
      * @param args - no input args
      */
     public static void main(String[] args) {
@@ -35,6 +36,7 @@ public class EncryptionMachine {
 
     /**
      * validates that input is a valid entry
+     *
      * @param word
      * @return is the word valid
      */
@@ -46,6 +48,7 @@ public class EncryptionMachine {
 
     /**
      * encrypts word using a Caesar Cipher
+     *
      * @param word
      * @return ciphertext
      */
@@ -60,6 +63,7 @@ public class EncryptionMachine {
 
     /**
      * encrypt a single character
+     *
      * @param c the character to encrypt
      * @return encrypted character
      */
@@ -72,24 +76,26 @@ public class EncryptionMachine {
      * prints a quick summery for the program
      */
     private static void printIntroduction() {
-        System.out.println("Introduction: when prompted, enter the key and word you would like to encrypt.");
+        System.out.println("Welcome to the CSCI717 Encryption Machine ");
+        System.out.println("when prompted, enter the key and words you would like to encrypt.");
         System.out.println("The program will encrypt the entry and print the results.");
         System.out.println();
     }
 
     /**
      * gets the key from an input stream
+     *
      * @param scanner input stream scanner
      * @return plaintext key
      */
-    private static String getKey(Scanner scanner)
-    {
+    private static String getKey(Scanner scanner) {
         System.out.print("Enter key: ");
         return scanner.next();
     }
 
     /**
      * gets the word to encrypt from an input stream and validates entry
+     *
      * @param scanner the input stream scanner
      * @return plaintext word
      */
@@ -109,6 +115,7 @@ public class EncryptionMachine {
 
     /**
      * encrypts word and prints ciphertext
+     *
      * @param word plaintext word
      */
     private static void printCipherText(String word) {
